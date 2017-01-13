@@ -1,7 +1,7 @@
 function split(wholeArray) {
-  var middleNum = Math.floor( (wholeArray.length) / 2)
-  var firstHalf = wholeArray.splice(0, middleNum)
-  var secondHalf = wholeArray
+  var middleNum = Math.floor((wholeArray.length) / 2);
+  var firstHalf = wholeArray.splice(0, middleNum);
+  var secondHalf = wholeArray;
 
   return [firstHalf, secondHalf];
 }
@@ -26,21 +26,20 @@ function merge(arr1, arr2){
     }
   }
 
-  return newArray
+  return newArray;
 }
 
 function mergeSort(array) {
 
-  if (array.length===1) {
-    return array
+  if (array.length === 1) {
+    return array;
   }
   else {
-      var splittedArray = split(array)
-      var firstHalf = splittedArray[0];
-      var secondHalf = splittedArray[1];
+      var splitArray = split(array)
+      var firstHalf = splitArray[0];
+      var secondHalf = splitArray[1];
 
 //mergeSort splits halves all the way down to single items. merge sorts and concats each item;
-
-      return merge(mergeSort(firstHalf), mergeSort(secondHalf))
+  return merge(mergeSort(firstHalf), mergeSort(secondHalf))
   }
 }
