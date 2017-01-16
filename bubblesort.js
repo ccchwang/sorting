@@ -1,24 +1,21 @@
 function bubbleSort(array) {
-  if (array.length === 0 || array.length === 1) {
-    return array;
-  }
-  var i=0;
+  var i=0, len = array.length-1;
 
   while (i<array.length) {
-    for (var j=0; j<array.length-1; j++) {
+    for (var j=0; j<len; j++) {
       if (array[j] > array[j+1]) {
-        swap(array[j], array[j+1], array, j)
+        swap(array, j);
       }
     }
-    i++
+    i++;
+    len--;
   }
 return array;
 }
-
 // hold onto bigger value
-
-var swap = function (val1, val2, array, j) {
-  array[j] = val2;
+var swap = function (array, j) {
+  var val1 = array[j];
+  array[j] = array[j+1];
   array[j+1] = val1;
   return array;
 }
